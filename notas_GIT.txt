@@ -199,11 +199,13 @@ se crea un ORIGEN remoto de mi archivo
 =======
 *  git push origin main (envía los archivos)
 ------------------------
-//Problema1 cambio en remoto sin registrar
+// PULL
 *  git pull origin main (trae los cambios en remoto al main)
-*  git pull origin master --allow-unrelated-histories (fusiona rama en  remoto con rama en local)
-//Solucionado
-*  git status (comprueba)
+//Problema si hay cambios en remoto sin registrar
+*  git pull origin master --allow-unrelated-histories (fusiona rama en remoto con rama en local)
+//Comprobar
+*  git status 
+*  git log
 ------------------------
 
 //EDITAR EN GIT
@@ -211,6 +213,8 @@ se crea un ORIGEN remoto de mi archivo
 * Escoger el archivo y picar en las opciones de la derecha el lápiz de editar. Realizo los cambios. Hacer un PreView y un commit changes.
 //  Para traer esos cambios
 *  git pull origin main (trae los cambios en remoto al main)
+
+
 
 
 
