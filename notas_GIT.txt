@@ -1,0 +1,228 @@
+ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+         COMANDOS BÁSICOS EN GIT
+ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+ 
+ //  Iniciando GIT
+     =============
+ $ git init (arranca el repositorio)
+ $ git add miArchivo.txt (arranca el archivo)                             **
+ $ git commit -m 'versión 1' (envía los últimos cambios a la BD 
+ de control de versiones)
+
+$ git add . (añade TODOS los cambios)                                      **
+$ git commit -m 'Cambios a v1' (cambios realizados)
+
+$ git status (ver estados de la bases de datos)
+$ git show (muestra los cambios históricos realizados)
+$ git log miArchivo.txt (historial de un archivo)
+$ git push (envía repositorio a servidor remoto)
+$ git pull (mando a traer ese repositorio)
+
+// Creando Proyecto en git
+   =======================
+
+* mkdir Proyecto1 (crea carpeta)
+* cd proyecto1 (ingresa a la carpeta)
+* touch crea un archivo vacío 
+* cat vacio.txt (muestra el contenido) 
+* history (muestra el historial de comandos)
+* !33 (repite el comando por su numeración de(history))
+* rm (ReMove) elimina archivo
+* -comando- help y muestra la ayuda
+
+// Comandos útiles
+   ===============
+
+* dir (muestra contenido de un directorio)
+* pwd (muestra la ruta completa del directorio de trabajo actual)
+* ctrl + l (limpia la consola)
+* ls -al (muestra archivos - ocultos)
+
+* git status (muestra el estado actual del directorio de trabajo y el area de ensayo)
+información de archivos modificados y no modificados y no rastreados en el repositorio.
+
+// Configurar GIT
+   ==============
+
+* git config (como configurar y personalizar los ajustes de Git en diferentes niveles, 
+  incluyendo global, local y sistema)
+
+* git config --list (configuración por defecto )
+* git config --list --show-origin (dónde están guardadas las configuraciones)
+
+* git config --global user.name 'Clau Carrizo'
+* git config --global user.email 'claucarrizo2309@gmail.com' 
+
+RECORDAR CONFIGURACIÓN GIT
+* git config -l
+CAMBIAR EL EMAIL
+*  git config --global user.email 'email@mail.com'
+
+// Crear nuevo commit
+   ==================
+
+* git add . (agrega TODOS los archivos)                                    **
+* git status
+* git commit -m 'Este es el primer commit de estos archivos'
+
+// Modificar archivo en GIT
+   ========================
+
+* code notas_GIT.txt (abre en VSC para modificar)                           **
+* git add notas_GIT.txt (agrega archivo modificado)
+* git commit -m 'Cambios al archivo notas_GIT para reflejar la modificación de un archivo en GIT'
+
+* git log (muestra el historial del archivo)
+
+
+// Editor de texto VI 
+   ==================
+
+*  vi archivo.txt (abre archivo en Editor VI) 
+   --cuando no agrego commit en GIT--
+*  Esc + i (inserta texto)
+*  Esc + shift + zz (sale de VI) -guarda-
+
+// Compara las diferentes versiones
+   ================================
+
+* git show (muestra los commit)
+* git diff n° commit + n° commit a comparar
+
+// Volver en el tiempo el repositorio con RESET Y CHECKOUT 
+   =======================================================
+   **RECORDAR -directorio de trabajo/staging/repositorio
+
+* git log (commit ocurridos)
+* git reset (vuelve a V.anterior)
+- git reset --hard (Todo vuelve al estado anterior !peligroso)
+- git reset --soft (conserva el staging)
+
+* git log --stat(muestra cambios específicos en cuales archivos a partir del commit)
+* salir con letra Q
+
+* git CHECKOUT 
+   (cambia/crea a una rama específica - restaura archivo específico de rama
+   ignora cambios en archivo y restaura el archivo al estado actual - ignora cambios en directorio)
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+         FLUJO DE TRABAJO EN GIT
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+// Flujo de trabajo con repositorio remoto
+==========================================
+* GIT init
+* GIT add
+* GIT commit
+* GIT CLONE URL
+* GIT push
+* GIT fetch
+* GIT merge
+* GIT pull
+
+// Introducción a las ramas o branches
+======================================
+* git CHECKOUT master cambia a la rama maestra
+* git branch (enumera todas las ramas del repositorio)
+
+  commitear cambios (atajo)
+  -------------------------
+* git commit -a + agregar commit 
+
+  comprobar cambios
+  -----------------
+* git log
+* git log --stat
+* git status
+* git show (muestra últimos cambios realizados)
+
+   crear BRANCH
+   ------------
+* git branch nombre_branch
+* git show (HEAD -> master, nombre_branch)
+* git status 
+
+   mover entre ramas
+   -----------------
+* git CHECKOUT nombre_branch
+
+// Fusión de ramas con GIT merge
+================================
+* git branch (enumera todas las ramas del repositorio(escoger para fusionar))
+* git merge nombre_branch (estando en master, la branch principal se fusiona con nombre_branch)
+
+♥♥♥ se fusionó de cabecera a master, siendo master la branch principal 
+
+
+// Resolución de conflictos al hacer un merge
+=============================================
+* Elegir con qué versión quedarse
+* VSCode lo hace fácil
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+   TRABAJANDO CON REPOSITORIOS REMOTOS EN GIT
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+// Configurar llaves SSH en local
+=================================
+* ssh-keygen -t rsa -b 4096 -C 'claucarrizo2309@gmail.com' (genera la llave)
+-- la identificación se guardada en un archivo en el dispositivo --
+-- la llave publica fue guardada en el mismo archivo --
+
+// Encender SSH (servidor de llaves)
+====================================
+* eval $(ssh-agent -s) (evalúa si el comando se dispara)
+Agent pid **** (servidor está corriendo)  -devuelve la consola
+
+//Agregar la llave al servidor alt+126 = ~
+==============================
+*  cd ~/.ssh/ (abre el archivo donde está la identificación)
+*  ls -al (muestra archivos ocultas)
+
+*  ssh-add ~/.ssh/id_rsa (identidad añadida)
+(en mac es diferente ojo al piojo)
+
+// DE MASTER A MAIN 
+===================
+*  git branch -M main (main como la principal)
+*  git push origin main (cuando ya está creado)
+
+// CREANDO UN PUSH 
+===================
+se crea un ORIGEN remoto de mi archivo
+*  git remote add origin https://github.com/clau-carrizo/hiperblog.git
+*  git remote (confirmar)
+*  git remote -v  (fetch = traer cosas / push enviar cosas)
+
+// PUSH
+=======
+*  git push origin main (envía los archivos)
+------------------------
+//Problema1 cambio en remoto sin registrar
+*  git pull origin main (trae los cambios en remoto al main)
+*  git pull origin master --allow-unrelated-histories (fusiona rama en  remoto con rama en local)
+//Solucionado
+*  git status (comprueba)
+------------------------
+
+//EDITAR EN GIT
+===============
+* Escoger el archivo y picar en las opciones de la derecha el lápiz de editar. Realizo los cambios. Hacer un PreView y un commit changes.
+//  Para traer esos cambios
+*  git pull origin main (trae los cambios en remoto al main)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
