@@ -127,7 +127,7 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
   commitear cambios (atajo)
   -------------------------
-* git commit -a + agregar commit 
+* git commit -am 'mensaje descriptivo' 
 
   comprobar cambios
   -----------------
@@ -199,13 +199,11 @@ se crea un ORIGEN remoto de mi archivo
 =======
 *  git push origin main (envía los archivos)
 ------------------------
-// PULL
+//Problema1 cambio en remoto sin registrar
 *  git pull origin main (trae los cambios en remoto al main)
-//Problema si hay cambios en remoto sin registrar
-*  git pull origin master --allow-unrelated-histories (fusiona rama en remoto con rama en local)
-//Comprobar
-*  git status 
-*  git log
+*  (fusiona rama en  remoto con rama en local)
+//Solucionado
+*  git status (comprueba)
 ------------------------
 
 //EDITAR EN GIT
@@ -214,8 +212,17 @@ se crea un ORIGEN remoto de mi archivo
 //  Para traer esos cambios
 *  git pull origin main (trae los cambios en remoto al main)
 
+//Editando de origin = repositorio remoto a rama actual (main)
+-- luego de la edición --
+traer la versión en remoto 
 
+* git pull origin main 
+* git status
+* git commit -am 'mensaje descriptivo'
 
+//Antes de enviar  el cambio por buenas practicas
+* git pull origin main 
+* git push origin main 
 
 
 
